@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: 'item.component.html',
     styleUrls:['item.component.css']
 })
-export class TabItemComponent implements OnInit {
+export class ItemComponent implements OnInit {
     constructor() { }
 
     ngOnInit() { }

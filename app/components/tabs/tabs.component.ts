@@ -21,8 +21,8 @@ export class TabsComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
-        this.ele_content = document.querySelector('.tab-content');
-        this.ele_span = document.querySelector('.pspan');
+        this.ele_content =<HTMLElement> document.querySelector('.tab-content') ;
+        this.ele_span =<HTMLElement>  document.querySelector('.pspan');
     }
 
     @HostListener('touchstart', ["$event"]) onTouchStart(event: TouchEvent) {

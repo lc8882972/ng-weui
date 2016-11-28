@@ -48,23 +48,3 @@
 	-moz-box-sizing: content-box;
 	box-sizing: content-box;
 }
-
-.tab-content-item {
-	z-index: 1;
-	flex-shrink: 0;
-	position: relative;
-	width: 100%;
-	height: 100%;
-}
-
-.one {
-	background: #fff;
-}
-
-.two {
-	background: orangered;
-}
-
-.three {
-	background: green;
-}

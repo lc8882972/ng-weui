@@ -11,14 +11,14 @@ import { AlertComponent, DialogComponent } from './components/dialog/dialog.comp
 import { ToastComponent } from './components/toast/toast.component';
 import { UploaderComponent } from './components/uploader/uploader.component';
 import { TabsComponent } from './components/tabs/tabs.component';
-import { TabItemComponent } from './components/tab.item/item.component';
+import { ItemComponent } from './components/tab.item/item.component';
 
 import { UserService } from './servicers/user.service';
 
 import { routing } from './app.routes';
 @NgModule({
   imports: [BrowserModule, HttpModule],
-  declarations: [AppComponent, AComponent, BComponent, ButtonComponent, AlertComponent, DialogComponent, ToastComponent,UploaderComponent,SomeComponent,AnotherComponent,TabsComponent,TabItemComponent],
+  declarations: [AppComponent, AComponent, BComponent, ButtonComponent, AlertComponent, DialogComponent, ToastComponent,UploaderComponent,SomeComponent,AnotherComponent,TabsComponent,ItemComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
