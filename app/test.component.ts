@@ -19,4 +19,6 @@ export class SomeComponent { /* ... */ }
     </some-component>
   `
 })
-export class AnotherComponent { /* ... */ }
+export class AnotherComponent { 
+  
+ }

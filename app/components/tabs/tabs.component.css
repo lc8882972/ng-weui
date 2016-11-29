@@ -7,16 +7,16 @@
 
 .tab-head {
 	display: flex;
-	height: 1rem;
+	height: 1.333rem;
 	width: 100%;
-	font-size: 0.32rem;
+	font-size: 32px;
 }
 
 .tab-head-item {
 	flex: 1;
 	text-align: center;
-	height: 1rem;
-	line-height: 1rem;
+	height: 100%;
+	line-height: 1.333rem;
 }
 
 .g {

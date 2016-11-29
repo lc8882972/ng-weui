@@ -1,12 +1,18 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild, AfterViewInit, ContentChild, AfterContentInit } from '@angular/core';
+import { TabHeadComponent } from '../tabhead/tabhead.component'
+import { TabBodyComponent } from '../tabbody/tabbody.component'
 
 @Component({
     moduleId: module.id,
     selector: 'tabs',
+    entryComponents: [TabBodyComponent],
     templateUrl: 'tabs.component.html',
     styleUrls: ['tabs.component.css']
 })
-export class TabsComponent implements OnInit {
+export class TabsComponent implements OnInit, AfterViewInit, AfterContentInit {
+
+    @ContentChild(TabBodyComponent) tabhead: TabHeadComponent;
+    @ContentChild(TabBodyComponent) tabbody: TabBodyComponent;
     start = 0;
     end = 0;
     allMove = 0;
@@ -15,14 +21,23 @@ export class TabsComponent implements OnInit {
     transZRegex: RegExp = /\.*translateX\((.*)\)/i;
     ele_content: HTMLElement;
     ele_span: HTMLElement;
-    len= 3;
+    len = 3;
     margin_left = 0;
-    margin_right = -((this.len -1) * this.clientX);
+    margin_right = -((this.len - 1) * this.clientX);
     constructor() { }
 
+    ngAfterViewInit() {
+
+    }
+
+    ngAfterContentInit() {
+        // contentChild is set
+        // containerChild is set
+        this.len = this.tabbody.items.length;
+    }
     ngOnInit() {
-        this.ele_content =<HTMLElement> document.querySelector('.tab-content') ;
-        this.ele_span =<HTMLElement>  document.querySelector('.pspan');
+        this.ele_content = <HTMLElement>document.querySelector('.tab-content');
+        this.ele_span = <HTMLElement>document.querySelector('.pspan');
     }
 
     @HostListener('touchstart', ["$event"]) onTouchStart(event: TouchEvent) {
@@ -94,14 +109,14 @@ export class TabsComponent implements OnInit {
                 } else {
                     var x = oldSpanVal % spanW;
                     this.ele_content.style.webkitTransform = 'translateX(' + t + 'px)';
-                    this.ele_span.style.webkitTransform = 'translateX(' + (oldSpanVal - x)  + 'px)';
+                    this.ele_span.style.webkitTransform = 'translateX(' + (oldSpanVal - x) + 'px)';
                 }
 
 
             } else {
                 t = oldVal - t;
                 if (t < this.margin_right) {
-                    this.ele_content.style.webkitTransform = 'translateX('+ this.margin_right +'px)';
+                    this.ele_content.style.webkitTransform = 'translateX(' + this.margin_right + 'px)';
                     this.ele_span.style.webkitTransform = 'translateX(' + Math.round(this.clientX * 0.66) + 'px)';
                 } else {
                     this.ele_content.style.webkitTransform = 'translateX(' + t + 'px)';
@@ -128,7 +143,7 @@ export class TabsComponent implements OnInit {
                     this.ele_span.style.webkitTransform = 'translateX(' + Math.round(this.clientX * 0.66) + 'px)';
                 } else {
                     var x = oldSpanVal + Math.round(moved / this.len);
-                    this.ele_content.style.webkitTransform = 'translateX(' + t + 'px)';                    
+                    this.ele_content.style.webkitTransform = 'translateX(' + t + 'px)';
                     this.ele_span.style.webkitTransform = 'translateX(' + x + 'px)';
                 }
             }
