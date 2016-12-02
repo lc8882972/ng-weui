@@ -16,6 +16,13 @@ import { Component, OnInit } from '@angular/core';
 	        width: 100%;
 	        font-size: 32px;
         }
+
+        .tab-item {
+	        flex: 1;
+	        text-align: center;
+	        height: 100%;
+	        line-height: 1.333rem;
+        }
         `
     ]
 })

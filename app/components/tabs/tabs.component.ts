@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, ViewChild, AfterViewInit, ContentChild, AfterContentInit } from '@angular/core';
+import { Component,Output,Input, OnInit, HostListener, ViewChild, AfterViewInit, ContentChild, AfterContentInit } from '@angular/core';
 import { TabHeadComponent } from '../tabhead/tabhead.component'
 import { TabBodyComponent } from '../tabbody/tabbody.component'
 
@@ -13,6 +13,8 @@ export class TabsComponent implements OnInit, AfterViewInit, AfterContentInit {
 
     @ContentChild(TabBodyComponent) tabhead: TabHeadComponent;
     @ContentChild(TabBodyComponent) tabbody: TabBodyComponent;
+    
+    
     start = 0;
     end = 0;
     allMove = 0;
@@ -148,5 +150,9 @@ export class TabsComponent implements OnInit, AfterViewInit, AfterContentInit {
                 }
             }
         }
+    }
+
+    clickme(){
+        console.log('clickme');
     }
 }

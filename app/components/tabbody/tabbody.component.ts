@@ -28,7 +28,8 @@ import { ItemComponent } from '../tab.item/item.component';
 	        -webkit-box-sizing: content-box;
 	        -moz-box-sizing: content-box;
 	        box-sizing: content-box;
-} `
+		} 
+`
 	]
 })
 export class TabBodyComponent implements OnInit, AfterContentInit {
