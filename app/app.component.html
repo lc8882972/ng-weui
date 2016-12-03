@@ -1,5 +1,5 @@
-<tabs>
-    <tab-head>
+<tabs (change)="change($event)">
+    <tab-head >
         <tab-item class="tab-head-item">
             tab1
         </tab-item>
@@ -12,14 +12,14 @@
     </tab-head>
     <div style="color:red"></div>
     <tab-body>
-        <tab-item>
+        <tab-item class="tab-item">
             1
             <another-component></another-component>
         </tab-item>
-        <tab-item>
+        <tab-item class="tab-item">
             2
         </tab-item>
-        <tab-item>
+        <tab-item class="tab-item">
             3
         </tab-item>
     </tab-body>

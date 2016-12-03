@@ -23,4 +23,8 @@ export class AppComponent {
     //     msg: '萨达萨达萨达',
     //     ok: '确定'
     // }
+
+    change(index :Number){
+        console.log(index);
+    }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, ContentChildren, AfterContentInit } from '@angular/core';
 
-import { ItemComponent } from '../tab.item/item.component';
+import { ItemComponent } from '../item/item.component';
 @Component({
 	moduleId: module.id,
 	selector: 'tab-body',
@@ -28,8 +28,16 @@ import { ItemComponent } from '../tab.item/item.component';
 	        -webkit-box-sizing: content-box;
 	        -moz-box-sizing: content-box;
 	        box-sizing: content-box;
+		}
+		
+	 	.tab-item {
+			z-index: 1;
+			flex-shrink: 0;
+			position: relative;
+			width: 100%;
+			height: 100%;
 		} 
-`
+	`
 	]
 })
 export class TabBodyComponent implements OnInit, AfterContentInit {
@@ -43,5 +51,6 @@ export class TabBodyComponent implements OnInit, AfterContentInit {
 	ngAfterContentInit() {
 		// contentChild is set
 		// containerChild is set
+		console.log(this.items);
 	}
 }

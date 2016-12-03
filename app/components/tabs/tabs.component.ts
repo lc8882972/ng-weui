@@ -1,11 +1,11 @@
-import { Component,Output,Input, OnInit, HostListener, ViewChild, AfterViewInit, ContentChild, AfterContentInit } from '@angular/core';
+import { Component, Output, Input, OnInit, HostListener, ViewChild, AfterViewInit, ContentChild, AfterContentInit,EventEmitter } from '@angular/core';
 import { TabHeadComponent } from '../tabhead/tabhead.component'
 import { TabBodyComponent } from '../tabbody/tabbody.component'
 
 @Component({
     moduleId: module.id,
     selector: 'tabs',
-    entryComponents: [TabBodyComponent],
+    entryComponents: [TabBodyComponent,TabHeadComponent],
     templateUrl: 'tabs.component.html',
     styleUrls: ['tabs.component.css']
 })
@@ -13,8 +13,8 @@ export class TabsComponent implements OnInit, AfterViewInit, AfterContentInit {
 
     @ContentChild(TabBodyComponent) tabhead: TabHeadComponent;
     @ContentChild(TabBodyComponent) tabbody: TabBodyComponent;
-    
-    
+    @Output('change') change = new EventEmitter();
+
     start = 0;
     end = 0;
     allMove = 0;
@@ -126,6 +126,8 @@ export class TabsComponent implements OnInit, AfterViewInit, AfterContentInit {
                     this.ele_span.style.webkitTransform = 'translateX(' + (oldSpanVal + x) + 'px)';
                 }
             }
+
+            this.change.emit(1);
         } else {
             // 还原页面
             if (moved > 0) {
@@ -152,7 +154,19 @@ export class TabsComponent implements OnInit, AfterViewInit, AfterContentInit {
         }
     }
 
-    clickme(){
-        console.log('clickme');
+    moveTo(index: number) {
+
+        if (index > this.len || index < 0) {
+            throw "索引超出范围";
+        }
+        var oldText = this.ele_content.style.webkitTransform;
+        var oldSpanText = this.ele_span.style.webkitTransform;
+
+        var oldVal = parseInt(this.transZRegex.exec(oldText)[1]);
+        var oldSpanVal = parseInt(this.transZRegex.exec(oldSpanText)[1]);
+        var temp = (index - 1) * this.clientX;
+        this.ele_content.style.webkitTransform = 'translateX(' + (-temp) + 'px)';
+        this.ele_span.style.webkitTransform = 'translateX( ' + Math.round(temp / this.len) + 'px)';
+        this.change.emit(1);
     }
 }

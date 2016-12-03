@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ContentChildren } from '@angular/core';
+import { ItemComponent } from '../item/item.component';
 
 @Component({
     moduleId: module.id,
     selector: 'tab-head',
-    template:`
-        <div class="tab-head">
+    template: `
+        <div class="tab-head" (clickme)="clickme($event)" >
             <ng-content></ng-content>
         </div>
     `
-    ,styles:[
+    , styles: [
         `
         .tab-head {
 	        display: flex;
@@ -27,7 +28,22 @@ import { Component, OnInit } from '@angular/core';
     ]
 })
 export class TabHeadComponent implements OnInit {
+    @ContentChildren(ItemComponent) items: ItemComponent[];
     constructor() { }
 
     ngOnInit() { }
+
+    ngAfterContentInit() {
+        // contentChild is set
+        // containerChild is set
+        console.log(this.items);
+    }
+
+    clickme(child : ItemComponent){
+        for(var i =0 ;i <this.items.length;i++){
+            if(this.items[i] == child){
+                console.log(i);
+            }
+        }
+    }
 }

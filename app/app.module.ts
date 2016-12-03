@@ -11,7 +11,7 @@ import { AlertComponent, DialogComponent } from './components/dialog/dialog.comp
 import { ToastComponent } from './components/toast/toast.component';
 import { UploaderComponent } from './components/uploader/uploader.component';
 import { TabsComponent } from './components/tabs/tabs.component';
-import { ItemComponent } from './components/tab.item/item.component';
+import { ItemComponent } from './components/item/item.component';
 import { TabHeadComponent } from './components/tabhead/tabhead.component';
 import { TabBodyComponent } from './components/tabbody/tabbody.component';
 
