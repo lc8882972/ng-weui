@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 @Component({
     moduleId: module.id,
     selector: 'my-app',
-    templateUrl:'app.component.html',
-    styleUrls:['app.component.css']
+    templateUrl: 'app.component.html',
+    styleUrls: ['app.component.css']
 })
 export class AppComponent {
     // clicked: boolean = false;
@@ -24,7 +24,11 @@ export class AppComponent {
     //     ok: '确定'
     // }
 
-    change(index :Number){
+    change(index: Number) {
         console.log(index);
+    }
+
+    clickme() {
+      console.log('clickme');
     }
 }

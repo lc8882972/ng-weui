@@ -1,12 +1,20 @@
-import { Component, OnInit, ContentChildren } from '@angular/core';
+import { Component, OnInit, ContentChildren, ElementRef, ViewContainerRef, ViewChildren } from '@angular/core';
 import { ItemComponent } from '../item/item.component';
 
 @Component({
     moduleId: module.id,
     selector: 'tab-head',
     template: `
-        <div class="tab-head" (clickme)="clickme($event)" >
-            <ng-content></ng-content>
+        <div class="tab-head"  >
+        <tab-item class="tab-head-item" (clickme)="clickme(e)">
+            tab1
+        </tab-item>
+        <tab-item class="tab-head-item" (clickme)="clickme(e)">
+            tab2
+        </tab-item>
+        <tab-item class="tab-head-item" (clickme)="clickme(e)">
+           tab3
+        </tab-item>
         </div>
     `
     , styles: [
@@ -28,8 +36,10 @@ import { ItemComponent } from '../item/item.component';
     ]
 })
 export class TabHeadComponent implements OnInit {
-    @ContentChildren(ItemComponent) items: ItemComponent[];
-    constructor() { }
+    @ViewChildren(ItemComponent) items: ItemComponent[];
+    constructor(private elementRef: ElementRef, private viewContainerRef: ViewContainerRef) {
+
+    }
 
     ngOnInit() { }
 
@@ -39,11 +49,12 @@ export class TabHeadComponent implements OnInit {
         console.log(this.items);
     }
 
-    clickme(child : ItemComponent){
-        for(var i =0 ;i <this.items.length;i++){
-            if(this.items[i] == child){
-                console.log(i);
-            }
-        }
+    ngAfterViewInit() {
+        // contentChild is set
+        // containerChild is set
+        console.log(this.items);
+    }
+    clickme(e: ItemComponent) {
+        console.log(e);
     }
 }
