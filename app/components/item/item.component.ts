@@ -3,7 +3,7 @@ import { Component, Output, OnInit, HostListener, ViewEncapsulation, ElementRef,
 @Component({
     moduleId: module.id,
     encapsulation: ViewEncapsulation.None,
-    selector: 'tab-item',
+    selector: 'item',
     templateUrl: 'item.component.html',
     styleUrls: ['item.component.css']
 })

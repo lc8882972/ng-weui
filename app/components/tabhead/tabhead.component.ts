@@ -1,20 +1,13 @@
-import { Component, OnInit, ContentChildren, ElementRef, ViewContainerRef, ViewChildren } from '@angular/core';
+import { Component, OnInit, ContentChildren, ElementRef, ViewContainerRef, ViewChildren,ViewEncapsulation } from '@angular/core';
 import { ItemComponent } from '../item/item.component';
 
 @Component({
     moduleId: module.id,
     selector: 'tab-head',
+    encapsulation: ViewEncapsulation.None,
     template: `
-        <div class="tab-head"  >
-        <tab-item class="tab-head-item" (clickme)="clickme(e)">
-            tab1
-        </tab-item>
-        <tab-item class="tab-head-item" (clickme)="clickme(e)">
-            tab2
-        </tab-item>
-        <tab-item class="tab-head-item" (clickme)="clickme(e)">
-           tab3
-        </tab-item>
+        <div class="tab-head" (clickme)="clickme($event)">
+            <ng-content></ng-content>
         </div>
     `
     , styles: [
@@ -26,7 +19,7 @@ import { ItemComponent } from '../item/item.component';
 	        font-size: 32px;
         }
 
-        .tab-item {
+        .tab-head > item{
 	        flex: 1;
 	        text-align: center;
 	        height: 100%;
@@ -36,7 +29,10 @@ import { ItemComponent } from '../item/item.component';
     ]
 })
 export class TabHeadComponent implements OnInit {
-    @ViewChildren(ItemComponent) items: ItemComponent[];
+    @ContentChildren
+    
+    
+    (ItemComponent) items: ItemComponent[];
     constructor(private elementRef: ElementRef, private viewContainerRef: ViewContainerRef) {
 
     }
