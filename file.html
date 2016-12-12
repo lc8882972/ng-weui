@@ -16,17 +16,24 @@
             width: 100%;
             height: 100%;
         }
-        
-        #cv {
+        /*#cv {
             width: 100%;
-        }
+        }*/
     </style>
 </head>
 
 <body>
     <div>
-        <canvas id="cv"></canvas>
-        <input type="file" value="上传文件" id="upload" />
+        <input type="file" name="upload" id="upload" value="上传文件" />
+        <form id="myForm" name="myForm">
+            <!--<canvas id="cv" style="width:220px;height:220px"></canvas>-->
+
+            <input type="text" name="filename" id="filename" value="上传文件" />
+        </form>
+    </div>
+
+    <div>
+        <img id="distImg" />
     </div>
     <script src="images.js"></script>
 </body>
