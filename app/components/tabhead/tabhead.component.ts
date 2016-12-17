@@ -1,4 +1,4 @@
-import { Component, OnInit, ContentChildren, ElementRef, ViewContainerRef, ViewChildren,ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ContentChildren, ElementRef, ViewContainerRef, ViewChildren, ViewEncapsulation } from '@angular/core';
 import { ItemComponent } from '../item/item.component';
 
 @Component({
@@ -29,12 +29,9 @@ import { ItemComponent } from '../item/item.component';
     ]
 })
 export class TabHeadComponent implements OnInit {
-    @ContentChildren
+    @ContentChildren(ItemComponent) items: ItemComponent[];
     
-    
-    (ItemComponent) items: ItemComponent[];
     constructor(private elementRef: ElementRef, private viewContainerRef: ViewContainerRef) {
-
     }
 
     ngOnInit() { }

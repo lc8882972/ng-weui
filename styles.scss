@@ -1,0 +1,23 @@
+    @function px2em($px, $base-font-size: 16px) {
+        @if (unitless($px)) {
+            @return px2em($px + 0px); // That may fail.
+        }
+        @else if (unit($px)==em) {
+            @return $px;
+        }
+        @return ($px / $base-font-size) * 1em;
+    }
+    
+    @function px2rem($px, $base-font-size: 75px) {
+        @if (unitless($px)) {
+            @return px2rem($px + 0px); // That may fail.
+        }
+        @else if (unit($px)==rem) {
+            @return $px;
+        }
+        @return ($px / $base-font-size) * 1rem;
+    }
+    
+    .tab-item {
+        font-size: $px2rem(24px);
+    }
