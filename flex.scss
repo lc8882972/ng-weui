@@ -1,0 +1,251 @@
+@mixin font-dpr($font-size) {
+    font-size: $font-size;
+    [data-dpr="2"] & {
+        font-size: $font-size * 2;
+    }
+    [data-dpr="3"] & {
+        font-size: $font-size * 3;
+    }
+}
+
+@mixin px2rem($property, $px-values, $baseline-px:75px, $support-for-ie:false) {
+    //Conver the baseline into rems
+    $baseline-rem: $baseline-px / 1rem * 1;
+    //Print the first line in pixel values
+    @if $support-for-ie {
+        #{$property}: $px-values;
+    }
+    //if there is only one (numeric) value, return the property/value line for it.
+    @if type-of($px-values)=="number" {
+        #{$property}: $px-values / $baseline-rem;
+    }
+    @else {
+        //Create an empty list that we can dump values into
+        $rem-values: ();
+        @each $value in $px-values {
+            // If the value is zero or not a number, return it
+            @if $value==0 or type-of($value) !="number" {
+                $rem-values: append($rem-values, $value / $baseline-rem);
+            }
+        }
+        // Return the property and its list of converted values
+        #{$property}: $rem-values;
+    }
+}
+
+@function px2em($px, $base-font-size: 16px) {
+    @if (unitless($px)) {
+        @return px2em($px + 0px); // That may fail.
+    }
+    @else if (unit($px)==em) {
+        @return $px;
+    }
+    @return ($px / $base-font-size) * 1em;
+}
+
+@function px2rem($px, $base-font-size: 75px) {
+    @if (unitless($px)) {
+        @return px2rem($px + 0px); // That may fail.
+    }
+    @else if (unit($px)==rem) {
+        @return $px;
+    }
+    @return ($px / $base-font-size) * 1rem;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.center {
+    text-align: center;
+}
+
+.icon {
+    width: 2.1.333rem;
+}
+
+.row {
+    display: flex;
+}
+
+.col {
+    flex: 1;
+}
+
+.container {
+    width: 100%;
+    position: relative;
+}
+
+.navbar {
+    display: flex;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    color: #000;
+    height: 1.333rem;
+    line-height: 1.333rem;
+    @include font-dpr(16px)
+}
+
+.navbar-back {
+    display: flex;
+    width: 1.333rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-back-icon {
+    height: 0.426rem;
+    width: auto;
+}
+
+.navbar-title {
+    flex: 1;
+    text-align: center;
+}
+
+.navbar-tool {
+    display: flex;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    color: #000;
+    height: 1.333rem;
+    text-align: center;
+    line-height: 1.333rem;
+    @include font-dpr(16px)
+}
+
+.main {
+    position: fixed;
+    top: 1.333rem;
+    bottom: 1.333rem;
+    left: 0;
+    right: 0;
+}
+
+.content {
+    position: fixed;
+    top: 0;
+    bottom: 1.333rem;
+    left: 0;
+    right: 0;
+    background: #f8f8f8;
+}
+
+.tabbar {
+    display: flex;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    height: 1.333rem;
+    align-items: center;
+}
+
+.tabbar::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1.333rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.tabbar-item {
+    flex: 1;
+    text-align: center;
+    color: rgb(102, 102, 102);
+    @include font-dpr(12px);
+}
+
+.tabbar-item-img {
+    width: 0.64rem;
+}
+
+.tabbar-item-on {
+    color: rgb(115, 214, 210);
+}
+
+.banner {
+    width: 100%;
+    height: auto;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+}
+
+.nav {
+    display: flex;
+    width: 100%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.26rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    background: #fff;
+}
+
+.nav-item {
+    flex: 1;
+    text-align: center;
+}
+
+.nav-item>img {
+    width: 1.253rem;
+}
+
+.nav-item>p {
+    line-height: 0.666rem;
+    @include font-dpr(12px);
+    color: #909090;
+}
+
+.case {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 0.266rem;
+    background: #fff;
+    padding: 0 0.42rem;
+}
+
+.case-header {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 1rem;
+    padding-left: 0.2rem;
+}
+
+.case-title {
+    @include font-dpr(12px);
+    line-height: 1rem;
+}
+
+.case-title::before {
+    position: absolute;
+    left: -0.2rem;
+    top: 0.3rem;
+    width: 0.35rem;
+    height: 0.4rem;
+    background: url(assets/icon-triangle.png) no-repeat;
+    background-size: cover;
+    content: ""
+}
+
+.case>img {
+    width: 100%;
+}
