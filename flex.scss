@@ -110,6 +110,7 @@ body {
 .navbar-title {
     flex: 1;
     text-align: center;
+    @include font-dpr(20px)
 }
 
 .navbar-tool {
@@ -124,7 +125,7 @@ body {
     height: 1.333rem;
     text-align: center;
     line-height: 1.333rem;
-    @include font-dpr(16px)
+    @include font-dpr(16px);
 }
 
 .main {
@@ -208,8 +209,95 @@ body {
 
 .nav-item>p {
     line-height: 0.666rem;
+    /*line-height: 1.042;*/
     @include font-dpr(12px);
-    color: #909090;
+    color: rgb(102, 102, 102);
+}
+
+.house {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 0.266rem;
+    background: #fff;
+    padding: 0 0.4rem 0.2rem;
+}
+
+.house-header {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 1rem;
+    padding-left: 0.2rem;
+}
+
+.house-title {
+    display: inline-block;
+    @include font-dpr(14px);
+    line-height: 1rem;
+    color: rgb(73, 194, 189);
+}
+
+.house-title::before {
+    position: absolute;
+    left: -0.2rem;
+    top: 0.3rem;
+    width: 0.35rem;
+    height: 0.4rem;
+    background: url(assets/icon-triangle.png) no-repeat;
+    background-size: cover;
+    content: ""
+}
+
+.house-desc {
+    /*font-family: "PingFangSC";*/
+    line-height: 1rem;
+    @include font-dpr(13px);
+    color: rgb(51, 51, 51);
+}
+
+.house-search {
+    display: flex;
+    position: relative;
+    align-items: center;
+    width: 100%;
+    height: 0.8rem;
+    border: 1px solid #71d6d2;
+    border-radius: 4px;
+}
+
+.house-search input {
+    display: inline-block;
+    flex: 1;
+    box-sizing: border-box;
+    margin-left: 1rem;
+    height: 0.5rem;
+    vertical-align: middle;
+    outline: none;
+    border: none;
+    @include font-dpr(12px);
+}
+
+.icon-search::before {
+    content: "";
+    position: absolute;
+    top: 25%;
+    /*bottom: 50%;*/
+    left: 0.25rem;
+    width: 31px;
+    height: 31px;
+    background: url('assets/icon-search.png') no-repeat;
+}
+
+.search-btn {
+    display: inline-block;
+    height: 0.8rem;
+    width: 2rem;
+    border-radius: 0 4px 4px 0;
+    line-height: 0.8rem;
+    text-align: center;
+    background: #71d6d2;
+    color: #fff;
+    @include font-dpr(14px);
 }
 
 .case {
@@ -217,7 +305,7 @@ body {
     width: 100%;
     margin-top: 0.266rem;
     background: #fff;
-    padding: 0 0.4rem 0.2rem ;
+    padding: 0 0.4rem 0.2rem;
 }
 
 .case-header {
@@ -229,8 +317,10 @@ body {
 }
 
 .case-title {
-    @include font-dpr(12px);
+    display: inline-block;
+    @include font-dpr(14px);
     line-height: 1rem;
+    color: rgb(51, 51, 51);
 }
 
 .case-title::before {
@@ -242,6 +332,18 @@ body {
     background: url(assets/icon-triangle.png) no-repeat;
     background-size: cover;
     content: ""
+}
+
+.case-more {
+    display: inline-block;
+    float: right;
+    line-height: 1rem;
+    /*@include font-dpr(12px);*/
+    color: rgb(102, 102, 102);
+    &::after {
+        content: "";
+        clear: both;
+    }
 }
 
 .case>img {
