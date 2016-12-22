@@ -26,7 +26,10 @@ export class TabsComponent implements OnInit, AfterViewInit, AfterContentInit {
     len = 3;
     margin_left = 0;
     margin_right = -((this.len - 1) * this.clientX);
-    constructor() { }
+
+    constructor() {
+
+     }
 
     ngAfterViewInit() {
 
@@ -36,6 +39,15 @@ export class TabsComponent implements OnInit, AfterViewInit, AfterContentInit {
         // contentChild is set
         // containerChild is set
         this.len = this.tabbody.items.length;
+        let head =document.querySelector('.tab-head');
+
+        var header_items =head.getElementsByTagName('item');
+        var that =this;
+        for(let i=0;i<header_items.length;i++){
+            header_items[i].addEventListener('click',function(){
+                that.moveTo(i+1);
+            })
+        }
     }
     ngOnInit() {
         this.ele_content = <HTMLElement>document.querySelector('.tab-content');
