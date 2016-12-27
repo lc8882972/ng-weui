@@ -4,8 +4,8 @@ import { HttpModule } from '@angular/http'
 
 import { AppComponent } from './app.component';
 import { SomeComponent, AnotherComponent } from './test.component';
-import { AComponent } from './components/a/a.component';
-import { BComponent } from './components/b/b.component';
+import { AComponent } from './views/a/a.component';
+import { BComponent } from './views/b/b.component';
 import { ButtonComponent } from './components/button/button.component';
 import { AlertComponent, DialogComponent } from './components/dialog/dialog.component';
 import { ToastComponent } from './components/toast/toast.component';
@@ -19,7 +19,7 @@ import { UserService } from './servicers/user.service';
 
 import { routing } from './app.routes';
 @NgModule({
-  imports: [BrowserModule, HttpModule],
+  imports: [BrowserModule, HttpModule,routing],
   declarations: [AppComponent,
     AComponent,
     BComponent,

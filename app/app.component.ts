@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 
 @Component({
     moduleId: module.id,
@@ -23,12 +23,4 @@ export class AppComponent {
     //     msg: '萨达萨达萨达',
     //     ok: '确定'
     // }
-
-    change(index: Number) {
-        console.log(index);
-    }
-
-    clickme() {
-      console.log('clickme');
-    }
 }

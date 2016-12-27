@@ -1,23 +1,36 @@
-.auto{
+.auto {
     width: 100%;
     height: 100%;
 }
 
 .container {
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .content :host {
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .tab-item {
-  	z-index: 1;
+    z-index: 1;
     flex-shrink: 0;
-	position: relative;
-	width: 100%;
-	height: 100%;
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
+.navbar {
+    width: 100%;
+    height: 1.333rem;
+}
+
+.pages {
+    width: 100%;
+    height: 5rem;
+}
+
+.main {
+    position: relative;
+}

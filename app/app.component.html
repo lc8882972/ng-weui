@@ -1,20 +1,10 @@
-<tabs (change)="change($event)" >
-    <tab-head >
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </tab-head>
-    <div style="color:red"></div>
-    <tab-body>
-        <item class="tab-item">
-            1
-            <another-component></another-component>
-        </item>
-        <item class="tab-item">
-            2
-        </item>
-        <item class="tab-item">
-            3
-        </item>
-    </tab-body>
-</tabs>
+<div class="container">
+    <nav class="navbar">
+        <a routerLink="/a">A</a>
+        <a routerLink="/b">B</a>
+    </nav>
+    <div class="main">
+        <router-outlet>
+        </router-outlet>
+    </div>
+</div>
