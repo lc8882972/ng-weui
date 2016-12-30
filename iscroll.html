@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <base href="/">
-    <title>Angular QuickStart</title>
+    <title></title>
     <meta charset="UTF-8">
 
-    <!--<link rel="stylesheet" href="lib/weui.min.css">-->
     <link rel="stylesheet" href="assets/css/global.css">
-
+    <link rel="stylesheet" href="assets/css/layout.css">
     <script>
         ! function(a, b) {
             function c() {
@@ -64,24 +62,51 @@
             }
         }(window, window.lib || (window.lib = {}));
     </script>
-    <!-- Polyfill(s) for older browsers -->
-    <script src="node_modules/core-js/client/shim.min.js"></script>
-
-    <script src="node_modules/zone.js/dist/zone.js"></script>
-    <script src="node_modules/reflect-metadata/Reflect.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
-
-    <script src="systemjs.config.js"></script>
-    <script>
-        System.import('app').catch(function(err) {
-            console.error(err);
-        });
-    </script>
-
 </head>
 
 <body>
-    <my-app>Loading...</my-app>
-</body>
+    <header class="header">
+    </header>
+    <main class="main">
+        <div class="warpper">
+            <div class="scroller">
+                <div class="box">
+                    1
+                    <input type="text" name="phone" value="" placeholder="phone code">
+                </div>
+                <div class="box">
+                    2
+                </div>
+                <div class="box">
+                    3
+                </div>
+                <div class="box">
+                     <input type="text" name="phone1" value="" placeholder="phone code">
+                </div>
+                <div class="box">
+                    5
+                </div>
+                <div class="box">
+                    6
+                </div>
+                <div class="box">
+                    7
+                </div>
+                <div class="box">
+                    8
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+    </footer>
+    <script>
+        var main = document.querySelector('.main');
+        console.log(main);
+        var clientY=document.body.clientHeight;
+        var head =document.querySelector('.header');
+        var foot =document.querySelector('.footer');
+        main.style.height =  (clientY - head.clientHeight -foot.clientHeight)+ 'px';
 
+    </script>
 </html>

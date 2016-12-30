@@ -37,4 +37,8 @@ export class BComponent implements OnInit {
 
     ngOnInit() { }
 
+    change(){
+        console.log('tab change');
+    }
+
 }

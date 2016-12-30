@@ -1,11 +1,12 @@
-import { Component, OnInit, ContentChildren, AfterContentInit } from '@angular/core';
+import { Component, OnInit, ContentChildren, AfterContentInit,ViewEncapsulation } from '@angular/core';
 
 import { ItemComponent } from '../item/item.component';
 @Component({
 	moduleId: module.id,
+	encapsulation: ViewEncapsulation.None,
 	selector: 'tab-body',
 	template: `
-    <div class="tab-content" style="transform: translateX(0);">
+    <div class="tab-content" style="transform: translate3d(0);">
         <ng-content></ng-content>
     </div>
     `,
@@ -28,15 +29,7 @@ import { ItemComponent } from '../item/item.component';
 	        -webkit-box-sizing: content-box;
 	        -moz-box-sizing: content-box;
 	        box-sizing: content-box;
-		}
-		
-	 	.tab-item {
-			z-index: 1;
-			flex-shrink: 0;
-			position: relative;
-			width: 100%;
-			height: 100%;
-		} 
+		}		
 	`
 	]
 })

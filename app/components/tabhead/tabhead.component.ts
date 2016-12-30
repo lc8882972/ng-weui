@@ -9,6 +9,9 @@ import { ItemComponent } from '../item/item.component';
         <div class="tab-head" (clickme)="clickme($event)">
             <ng-content></ng-content>
         </div>
+        <div class="g">
+            <span class="pspan" style="transform: translate3d(0);"></span>
+        </div>
     `
     , styles: [
         `
